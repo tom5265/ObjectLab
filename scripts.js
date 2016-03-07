@@ -12,11 +12,11 @@ var Die = function (value) {
         this.value = randomRoll();
         $('.dice').html(this.value);
     }
-   this.addDie = function () {
+    this.addDie = function () {
         $('.dice-container').append("<div class='dice'></div>");
         $('.dice').html(this.value);
     }
-};
+}
 
 $(document).ready(function () {
     $('.adding').click(function () {
@@ -25,14 +25,14 @@ $(document).ready(function () {
     $('.rolling').click(function () {
         rollDice();
     })
-});
+})
 
 
 function make() {
     var dice = new Die(randomRoll());
     dice.addDie();
     loadedDice.push(dice);
-};
+}
 
 function rollDice() {
     for (var i = 0; i < loadedDice.length; i++) {
