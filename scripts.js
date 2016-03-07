@@ -5,17 +5,22 @@ function randomRoll() {
     return Math.floor(Math.random() * 6 + 1);
 }
 
-var Die = function (value) {
-    this.value = value;
-
+var Die = function () {
+    this.value = null;
+    this.div = null;
+    this.insert = function () {
+        this.div = document.createElement('div');
+        this.div.className = 'die';
+        this.roll();
+        document.getElementById('dice-container').appendChild(this.div);
+    }
+    
     this.roll = function () {
-        this.value = randomRoll();
-        $('.dice').html(this.value);
+        var num = randomRoll();
+        this.value = num;       
+       this.div.innerHTML = num;
     }
-    this.addDie = function () {
-        $('.dice-container').append("<div class='dice'></div>");
-        $('.dice').html(this.value);
-    }
+    
 }
 
 $(document).ready(function () {
@@ -29,8 +34,8 @@ $(document).ready(function () {
 
 
 function make() {
-    var dice = new Die(randomRoll());
-    dice.addDie();
+    var dice = new Die();
+    dice.insert();
     loadedDice.push(dice);
 }
 
