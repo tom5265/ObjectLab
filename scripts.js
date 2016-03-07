@@ -1,6 +1,8 @@
 
 var loadedDice = [];
 
+
+
 function randomRoll() {
     return Math.floor(Math.random() * 6 + 1);
 }
@@ -30,6 +32,10 @@ $(document).ready(function () {
     $('.rolling').click(function () {
         rollDice();
     })
+    
+    $('.summing').click (function () {
+        sumDice();
+    })
 })
 
 
@@ -43,4 +49,12 @@ function rollDice() {
     for (var i = 0; i < loadedDice.length; i++) {
         loadedDice[i].roll();
     }
+}
+
+function sumDice() {
+    var total = 0;
+    for (var i = 0; i < loadedDice.length; i++) {
+     total += loadedDice[i].value;   
+}
+alert('The sum of the dice is ' + total);
 }
