@@ -23,4 +23,7 @@ button:active {
     width: 75px;
     background-color: #D3D3D3;
     display: inline-block;
+    text-align: center;
+    vertical-align: center;
+    line-height: 75px;
 }

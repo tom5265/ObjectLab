@@ -5,8 +5,6 @@ function randomRoll() {
     return Math.floor(Math.random() * 6 + 1);
 }
 
-
-
 var Die = function (value) {
     this.value = value;
 
@@ -14,8 +12,7 @@ var Die = function (value) {
         this.value = randomRoll();
         $('.dice').html(this.value);
     }
-
-    this.addDie = function () {
+   this.addDie = function () {
         $('.dice-container').append("<div class='dice'></div>");
         $('.dice').html(this.value);
     }
@@ -24,7 +21,7 @@ var Die = function (value) {
 $(document).ready(function () {
     $('.adding').click(function () {
         make();
-    })
+    });
     $('.rolling').click(function () {
         rollDice();
     })
