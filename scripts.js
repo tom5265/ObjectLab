@@ -1,8 +1,6 @@
 
 var loadedDice = [];
 
-
-
 function randomRoll() {
     return Math.floor(Math.random() * 6 + 1);
 }
@@ -21,8 +19,7 @@ var Die = function () {
         var num = randomRoll();
         this.value = num;       
        this.div.innerHTML = num;
-    }
-    
+    }  
 }
 
 $(document).ready(function () {
@@ -33,11 +30,21 @@ $(document).ready(function () {
         rollDice();
     })
     
-    $('.summing').click (function () {
+    $('.summing').click(function () {
         sumDice();
     })
-})
+    $('div').dblclick(function () {
+        deleteDie(e);
+    });
+});  
 
+function deleteDie (e) {
+    console.log('hello');
+    console.log(e.target);
+    var element = e.target;
+    element.remove();
+        
+}
 
 function make() {
     var dice = new Die();
@@ -58,3 +65,4 @@ function sumDice() {
 }
 alert('The sum of the dice is ' + total);
 }
+
